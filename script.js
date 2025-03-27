@@ -10,7 +10,7 @@ function Book(title, author, pages, read) {
     this.read = read;
     };
 
-function addBookToLibrary() {
+function addBookToLibrary(title, author, pages, read) {
     let theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet')
     bookLibrary.push(theHobbit)
 }
