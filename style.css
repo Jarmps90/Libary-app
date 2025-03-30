@@ -1,0 +1,15 @@
+:root{
+    --border: 1px solid black;
+}
+
+.container > div{
+    border: var(--border);
+    display: grid;
+    grid-row: auto;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
