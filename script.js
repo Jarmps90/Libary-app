@@ -16,10 +16,20 @@ function addBookToLibrary(title, author, pages, read) {
     bookLibrary.forEach((item) => {item.id = self.crypto.randomUUID()});
 };
 
+function getBookId(bookLibrary) {
+    let bookId = bookLibrary.find();
+    console.log(bookId);
+    return dispalyBook(bookId);
+}
+
+function dispalyBook(bookId) {
+    document.getElementById('title').innerText = Book.title;
+}
+
     
 
 
 // //"The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
 addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
 
-console.log(bookLibrary);
+// console.log(bookLibrary);
