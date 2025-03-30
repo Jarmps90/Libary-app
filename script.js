@@ -14,16 +14,20 @@ function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
     bookLibrary.push(newBook);
     bookLibrary.forEach((item) => {item.id = self.crypto.randomUUID()});
+   
+    return dispalyBook(newBook);
+
 };
 
-function getBookId(bookLibrary) {
-    let bookId = bookLibrary.find();
+function getBookId() {
+    let bookId = bookLibrary.find(function(element) {
+        return element;
+    } );
     console.log(bookId);
-    return dispalyBook(bookId);
 }
 
-function dispalyBook(bookId) {
-    document.getElementById('title').innerText = Book.title;
+function dispalyBook() {
+   
 }
 
     
@@ -31,5 +35,5 @@ function dispalyBook(bookId) {
 
 // //"The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
 addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
-
-// console.log(bookLibrary);
+// getBookId();
+// // console.log(bookLibrary);
