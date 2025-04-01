@@ -14,12 +14,9 @@ function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
     bookLibrary.push(newBook);
     bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
-    
 };
 
-function getBookId() {
-    
-};
+
 
 
     
