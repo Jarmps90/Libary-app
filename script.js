@@ -13,15 +13,13 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
     bookLibrary.push(newBook);
-    bookLibrary.forEach((item) => {item.id = self.crypto.randomUUID()});
+    bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
+    
 };
 
 function getBookId() {
-    let bookId = bookLibrary.forEach(book => {
-        return book.id
-    });
-    console.log(bookId);
-}
+    
+};
 
 
     
@@ -30,3 +28,4 @@ function getBookId() {
 // //"The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
 addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
 addBookToLibrary('Harry Potter and the Sorcerer\'s stone', 'J.K Rowling', '320 pages', 'read');
+getBookId();
