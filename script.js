@@ -1,4 +1,5 @@
 const bookLibrary = [];
+const bookJSON = JSON.stringify(Book);
 
 function Book(title, author, pages, read) {
     if(!new.target) {
@@ -16,6 +17,9 @@ function addBookToLibrary(title, author, pages, read) {
     bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
 };
 
+function displayBook(bookJSON) {
+    document.getElementsByClassName('title').innerText = JSON.stringify();
+}
 
 
 
@@ -25,4 +29,3 @@ function addBookToLibrary(title, author, pages, read) {
 // //"The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
 addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
 addBookToLibrary('Harry Potter and the Sorcerer\'s stone', 'J.K Rowling', '320 pages', 'read');
-getBookId();
