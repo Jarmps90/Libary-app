@@ -18,22 +18,23 @@ function addBookToLibrary(title, author, pages, read) {
     return displayBook(newBook);
 };
 
-// // function displayBook(newBook) {
-// //     bookLibrary.forEach(newBook => {
-// //     document.querySelector('.title').innerText = newBook.title;
-// //     document.querySelector('.author').innerText = newBook.author;
-// //     document.querySelector('.pages').innerText = newBook.pages;
-// //     document.querySelector('.read').innerText = newBook.read;
-// // });
+// function displayBook(newBook) {
+//     bookLibrary.forEach(newBook => {
+//     document.querySelector('.title').innerText = newBook.title;
+//     document.querySelector('.author').innerText = newBook.author;
+//     document.querySelector('.pages').innerText = newBook.pages;
+//     document.querySelector('.read').innerText = newBook.read;
+// });
     
 // }
 
 function displayBook(newBook) {
+    let jsonBook = JSON.stringify(newBook);
     bookLibrary.forEach(function(element) {
       let book = document.createElement('LI');
-      let bookList = document.createTextNode(element);
+      let bookList = document.createTextNode(jsonBook);
       book.appendChild(bookList);
-   
+     
      
       document.querySelector('.container').appendChild(book);
     });
@@ -43,8 +44,6 @@ function displayBook(newBook) {
     
 
 
-// //"The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
 addBookToLibrary('Harry Potter and the Sorcerer\'s stone', 'J.K Rowling', '320 pages', 'read');
 addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
 
-displayBook('Harry');
