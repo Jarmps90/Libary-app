@@ -1,3 +1,4 @@
+const dialog = document.querySelector('dialog');
 const bookLibrary = [];
 
 
@@ -11,34 +12,48 @@ function Book(title, author, pages, read) {
     this.read = read;
     };
 
-function addBookToLibrary(title, author, pages, read) {
-    const newBook = new Book(title, author, pages, read);
-    bookLibrary.push(newBook);
+function addBookToLibrary() {
+  const title = document.getElementById('book_title');
+  const author = document.getElementById('book_author');
+  const pages = document.querySelector('#book_pages');
+  const read = document.querySelector('#book_read');
+  const authorValue = author.value;
+  const titleValue = title.value;
+  const pagesValue = pages.value;
+  const readValue = read.value;
+  let newBook = new Book(titleValue, authorValue, pagesValue, readValue);
+   
     bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
-    return displayBook(newBook);
+    bookLibrary.push(newBook);
 };
 
-// function displayBook(newBook) {
-//     bookLibrary.forEach(newBook => {
-//     document.querySelector('.title').innerText = newBook.title;
-//     document.querySelector('.author').innerText = newBook.author;
-//     document.querySelector('.pages').innerText = newBook.pages;
-//     document.querySelector('.read').innerText = newBook.read;
-// });
-    
-// }
+function addBookBtn() {
+  const addBtn = document.querySelector('#addButton');
+    addBtn.addEventListener('click', () => {
+      addBookToLibrary();
+    })
+};
 
-function displayBook(newBook) {
-    let jsonBook = JSON.stringify(newBook);
-    bookLibrary.forEach(function(element) {
-      let book = document.createElement('LI');
-      let bookList = document.createTextNode(jsonBook);
-      book.appendChild(bookList);
-     
-     
-      document.querySelector('.container').appendChild(book);
+function openDialog() {
+  const showBtn = document.querySelector('#addBook');
+    showBtn.addEventListener('click', () => {
+      dialog.showModal();
+    })
+};
+
+function closeDialog() {
+  const closeBtn = document.querySelector('.closeBtn');
+    closeBtn.forEach(function(button) {
+      button.addEventListener('click', () => {
+        dialog.close();
+      });
     });
-  };
+    window.onclick = function(click) {
+      if(click.target == dialog) {
+        dialog.close();
+      }
+    }
+};
 
 
     
@@ -47,3 +62,32 @@ function displayBook(newBook) {
 addBookToLibrary('Harry Potter and the Sorcerer\'s stone', 'J.K Rowling', '320 pages', 'read');
 addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function displayBook(newBook) {
+//     let jsonBook = JSON.stringify(newBook);
+//     bookLibrary.forEach(function(element) {
+//       let book = document.createElement('LI');
+//       let bookList = document.createTextNode(jsonBook);
+//       book.appendChild(bookList);
+     
+     
+//       document.querySelector('.container').appendChild(book);
+//     });
+//   }
