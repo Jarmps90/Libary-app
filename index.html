@@ -9,11 +9,22 @@
 </head>
 <body>
     <div class="container">
-        <div class="id">Id</div>
-        <div class="title">Title</div>
-        <div class="author">Author</div>
-        <div class="pages">Pages</div>
-        <div class="read">Read</div>
+     <button class="addBook">Add book</button>
+     <dialog>
+        <button class="closeBtn">&times;</button>
+        <form action="#">
+            <label for="book_title">Book title:</label>
+            <input type="text" name="title" id="book_title" required>
+            <label for="book_author">Book author:</label>
+            <input type="text" name="author" id="book_author" required>
+            <label for="book_pages">Book pages:</label>
+            <input type="text" name="pages" id="book_pages" required>
+            <label for="book_read">Book read:</label>
+            <input type="text" name="read" id="book_read">
+            <button type="button" class="addBtn" id="addButton">Add</button>
+            <button type="button" class="closeBtn">Cancel</button>
+        </form>
+     </dialog>
 </div>
 </body>
 </html>
