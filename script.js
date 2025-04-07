@@ -32,17 +32,19 @@ function addBookBtn() {
     addBtn.addEventListener('click', () => {
       addBookToLibrary();
     })
+
 };
 
 function openDialog() {
-  const showBtn = document.querySelector('#addBook');
+  const showBtn = document.querySelector('.addBook');
     showBtn.addEventListener('click', () => {
       dialog.showModal();
-    })
+    });
+    addBookBtn()
 };
 
 function closeDialog() {
-  const closeBtn = document.querySelector('.closeBtn');
+  const closeBtn = document.querySelectorAll('.closeBtn');
     closeBtn.forEach(function(button) {
       button.addEventListener('click', () => {
         dialog.close();
@@ -57,8 +59,8 @@ function closeDialog() {
 
 
     
-
-
+openDialog();
+closeDialog();
 addBookToLibrary('Harry Potter and the Sorcerer\'s stone', 'J.K Rowling', '320 pages', 'read');
 addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
 
