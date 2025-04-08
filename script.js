@@ -1,6 +1,10 @@
 const dialog = document.querySelector('dialog');
 const bookLibrary = [];
 
+// bookLibrary.push({title: 'Harry Potter and the Sorcerer\'s stone',
+//   author: 'J.K Rowling',
+//   pages:'320 pages',
+//   read:'Yes'});
 
 function Book(title, author, pages, read) {
     if(!new.target) {
@@ -22,9 +26,16 @@ function addBookToLibrary() {
   const pagesValue = pages.value;
   const readValue = read.value;
   let newBook = new Book(titleValue, authorValue, pagesValue, readValue);
-   
-    bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
-    bookLibrary.push(newBook);
+    
+    if (authorValue.length > 0 && titleValue.length > 0 &&
+      pagesValue.length > 0 && readValue.length > 0) {
+        bookLibrary.push(newBook);
+        bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
+        dialog.close();
+    }
+    
+    
+    
 };
 
 function addBookBtn() {
@@ -61,8 +72,8 @@ function closeDialog() {
     
 openDialog();
 closeDialog();
-addBookToLibrary('Harry Potter and the Sorcerer\'s stone', 'J.K Rowling', '320 pages', 'read');
-addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
+
+// addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
 
 
 
