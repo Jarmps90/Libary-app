@@ -21,6 +21,7 @@ function addBookToLibrary() {
   const author = document.getElementById('book_author');
   const pages = document.querySelector('#book_pages');
   const read = document.querySelector('#book_read');
+  const reset = document.querySelectorAll('form.text');
   const authorValue = author.value;
   const titleValue = title.value;
   const pagesValue = pages.value;
@@ -32,6 +33,7 @@ function addBookToLibrary() {
         bookLibrary.push(newBook);
         bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
         dialog.close();
+        document.getElementById('book_title').reset();
     }
     
     
