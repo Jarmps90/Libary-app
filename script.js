@@ -1,10 +1,11 @@
 const dialog = document.querySelector('dialog');
-const bookLibrary = [];
-
-// bookLibrary.push({title: 'Harry Potter and the Sorcerer\'s stone',
-//   author: 'J.K Rowling',
-//   pages:'320 pages',
-//   read:'Yes'});
+const container = document.querySelector('.books');
+const bookLibrary = [
+    {title: 'Harry Potter and the Sorcerer\'s stone',
+    author: 'J.K Rowling',
+    pages:'320 pages',
+    read:'Yes'}
+  ];
 
 function Book(title, author, pages, read) {
     if(!new.target) {
@@ -16,12 +17,35 @@ function Book(title, author, pages, read) {
     this.read = read;
     };
 
+function displayBook() {
+  for(let i = 0; i < bookLibrary.length; i++) {
+    const  bookCard = document.createElement('div');
+    bookCard.className = 'bookCard'
+  
+    const title = document.createElement('p');
+    const author = document.createElement('p');
+    const pages = document.createElement('p');
+    const read = document.createElement('p');
+  
+    title.innerText = `Title: ${bookLibrary[i].title}`;
+    author.innerText = `Author: ${bookLibrary[i].author}`;
+    pages.innerText = `Pages: ${bookLibrary[i].pages}`;
+    read.innerText = `Read: ${bookLibrary[i].read}`;
+    bookCard.appendChild(title);
+    bookCard.appendChild(author);
+    bookCard.appendChild(pages);
+    bookCard.appendChild(read);
+  
+    container.appendChild(bookCard);
+  }
+}
+
+
 function addBookToLibrary() {
   const title = document.getElementById('book_title');
   const author = document.getElementById('book_author');
   const pages = document.querySelector('#book_pages');
   const read = document.querySelector('#book_read');
-  const reset = document.querySelectorAll('form.text');
   const authorValue = author.value;
   const titleValue = title.value;
   const pagesValue = pages.value;
@@ -32,12 +56,9 @@ function addBookToLibrary() {
       pagesValue.length > 0 && readValue.length > 0) {
         bookLibrary.push(newBook);
         bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
+        displayBook();
         dialog.close();
-        document.getElementById('book_title').reset();
     }
-    
-    
-    
 };
 
 function addBookBtn() {
@@ -76,33 +97,3 @@ openDialog();
 closeDialog();
 
 // addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function displayBook(newBook) {
-//     let jsonBook = JSON.stringify(newBook);
-//     bookLibrary.forEach(function(element) {
-//       let book = document.createElement('LI');
-//       let bookList = document.createTextNode(jsonBook);
-//       book.appendChild(bookList);
-     
-     
-//       document.querySelector('.container').appendChild(book);
-//     });
-//   }
