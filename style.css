@@ -1,0 +1,19 @@
+dialog{
+    display: grid;
+    grid-template-columns: 1fr minmax(min-content);
+    
+}
+
+form{
+    display: grid;
+    grid-template-rows: repeat(5,1fr);
+    grid-column: 1/2;
+}
+
+.topCloseBtn{
+    width: 30px;
+    grid-column: 2/3;
+    border: none;
+    background-color: white;
+
+}
