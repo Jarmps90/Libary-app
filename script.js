@@ -63,8 +63,16 @@ function addBookToLibrary() {
 
 function addBookBtn() {
   const addBtn = document.querySelector('#addButton');
+  const books = document.querySelector('.books');
+  const bookCard = document.querySelector('.bookCard');
     addBtn.addEventListener('click', () => {
-      addBookToLibrary();
+    //  if(document.querySelector('.bookCard') != null) {
+    //   bookCard.remove();
+    //   addBookToLibrary();
+    //  } else {
+    //   addBookToLibrary();
+    //  }
+    addBookToLibrary()
     })
 
 };
