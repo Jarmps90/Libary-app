@@ -31,12 +31,12 @@ function displayBook() {
     author.innerText = `Author: ${bookLibrary[i].author}`;
     pages.innerText = `Pages: ${bookLibrary[i].pages}`;
     read.innerText = `Read: ${bookLibrary[i].read}`;
-    bookCard.appendChild(title);
-    bookCard.appendChild(author);
-    bookCard.appendChild(pages);
-    bookCard.appendChild(read);
+    bookCard.append(title);
+    bookCard.append(author);
+    bookCard.append(pages);
+    bookCard.append(read);
   
-    container.appendChild(bookCard);
+    container.append(bookCard);
   }
 }
 
@@ -54,24 +54,18 @@ function addBookToLibrary() {
     
     if (authorValue.length > 0 && titleValue.length > 0 &&
       pagesValue.length > 0 && readValue.length > 0) {
+        
         bookLibrary.push(newBook);
         bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
         displayBook();
         dialog.close();
+        
     }
 };
 
 function addBookBtn() {
   const addBtn = document.querySelector('#addButton');
-  const books = document.querySelector('.books');
-  const bookCard = document.querySelector('.bookCard');
     addBtn.addEventListener('click', () => {
-    //  if(document.querySelector('.bookCard') != null) {
-    //   bookCard.remove();
-    //   addBookToLibrary();
-    //  } else {
-    //   addBookToLibrary();
-    //  }
     addBookToLibrary()
     })
 
