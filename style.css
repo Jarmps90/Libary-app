@@ -1,4 +1,4 @@
-dialog{
+:modal{
     display: grid;
     grid-template-columns: 1fr minmax(min-content);
     
