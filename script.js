@@ -1,11 +1,6 @@
 const dialog = document.querySelector('dialog');
 const container = document.querySelector('.books');
-const bookLibrary = [
-    {title: 'Harry Potter and the Sorcerer\'s stone',
-    author: 'J.K Rowling',
-    pages:'320 pages',
-    read:'Yes'}
-  ];
+const bookLibrary = [];
 
 function Book(title, author, pages, read) {
     if(!new.target) {
@@ -18,10 +13,13 @@ function Book(title, author, pages, read) {
     };
 
 function displayBook() {
+  container.innerHTML = '';
+  
   for(let i = 0; i < bookLibrary.length; i++) {
     const  bookCard = document.createElement('div');
-    bookCard.className = 'bookCard'
-  
+    bookCard.className = 'bookCard';
+
+    
     const title = document.createElement('p');
     const author = document.createElement('p');
     const pages = document.createElement('p');
@@ -35,11 +33,20 @@ function displayBook() {
     bookCard.append(author);
     bookCard.append(pages);
     bookCard.append(read);
-  
+    
     container.append(bookCard);
-  }
-}
+    removeBookBtn(bookCard);
+  };
+};
 
+function removeBookBtn(bookCard) {
+  const removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
+    removeBtn.innerText = 'Remove';
+    removeBtn.className = 'removeBtn';
+    bookCard.append(removeBtn);
+
+};
 
 function addBookToLibrary() {
   const title = document.getElementById('book_title');
@@ -54,7 +61,6 @@ function addBookToLibrary() {
     
     if (authorValue.length > 0 && titleValue.length > 0 &&
       pagesValue.length > 0 && readValue.length > 0) {
-        
         bookLibrary.push(newBook);
         bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
         displayBook();
@@ -65,9 +71,10 @@ function addBookToLibrary() {
 
 function addBookBtn() {
   const addBtn = document.querySelector('#addButton');
+ 
     addBtn.addEventListener('click', () => {
-    addBookToLibrary()
-    })
+     addBookToLibrary();}
+    );
 
 };
 
@@ -76,7 +83,7 @@ function openDialog() {
     showBtn.addEventListener('click', () => {
       dialog.showModal();
     });
-    addBookBtn()
+    addBookBtn();
 };
 
 function closeDialog() {
@@ -92,6 +99,7 @@ function closeDialog() {
       }
     }
 };
+
 
 
     
