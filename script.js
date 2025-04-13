@@ -12,7 +12,7 @@ function Book(title, author, pages, read) {
     this.read = read;
     };
 
-function displayBook() {
+function displayBook(newBook) {
   container.innerHTML = '';
   
   for(let i = 0; i < bookLibrary.length; i++) {
@@ -36,17 +36,11 @@ function displayBook() {
     
     container.append(bookCard);
     removeBookBtn(bookCard);
+    bookCard.dataset.id = newBook.id;
   };
+  console.log();
 };
 
-function removeBookBtn(bookCard) {
-  const removeBtn = document.createElement('button');
-    removeBtn.type = 'button';
-    removeBtn.innerText = 'Remove';
-    removeBtn.className = 'removeBtn';
-    bookCard.append(removeBtn);
-
-};
 
 function addBookToLibrary() {
   const title = document.getElementById('book_title');
@@ -63,11 +57,27 @@ function addBookToLibrary() {
       pagesValue.length > 0 && readValue.length > 0) {
         bookLibrary.push(newBook);
         bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
-        displayBook();
+        displayBook(newBook);
         dialog.close();
         
     }
 };
+
+function removeBookBtn(bookCard) {
+  
+  const removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
+    removeBtn.innerText = 'Remove';
+    removeBtn.className = 'removeBtn';
+    bookCard.append(removeBtn);
+   
+    removeBtn.addEventListener('click', removeBook());
+};
+
+function removeBook() {
+
+}
+
 
 function addBookBtn() {
   const addBtn = document.querySelector('#addButton');
