@@ -12,7 +12,7 @@ function Book(title, author, pages, read) {
     this.read = read;
     };
 
-function displayBook(newBook) {
+function displayBook(book) {
   container.innerHTML = '';
   
   for(let i = 0; i < bookLibrary.length; i++) {
@@ -36,9 +36,13 @@ function displayBook(newBook) {
     
     container.append(bookCard);
     removeBookBtn(bookCard);
-    bookCard.dataset.id = newBook.id;
   };
-  console.log();
+  const books = document.querySelectorAll('.bookCard');
+  
+  books.forEach((books, index) => {
+    books.dataset.id = bookLibrary[index].id
+  });
+ 
 };
 
 
@@ -56,11 +60,14 @@ function addBookToLibrary() {
     if (authorValue.length > 0 && titleValue.length > 0 &&
       pagesValue.length > 0 && readValue.length > 0) {
         bookLibrary.push(newBook);
-        bookLibrary.forEach((book) => {book.id = self.crypto.randomUUID()});
-        displayBook(newBook);
-        dialog.close();
+        bookLibrary.forEach((book) => {
+          book.id = self.crypto.randomUUID()
+         
+      });
         
+      displayBook(newBook);
     }
+    
 };
 
 function removeBookBtn(bookCard) {
@@ -70,13 +77,21 @@ function removeBookBtn(bookCard) {
     removeBtn.innerText = 'Remove';
     removeBtn.className = 'removeBtn';
     bookCard.append(removeBtn);
-   
-    removeBtn.addEventListener('click', removeBook());
+    removeBook();
+    
 };
 
 function removeBook() {
-
-}
+  const book = document.querySelector('.bookCard');
+  const remove = document.querySelectorAll('.removeBtn');
+  remove.forEach((removeBtn) => {
+    removeBtn.addEventListener('click', (e) => {
+      const element = e.target;
+      const bookCard = element.parentElement;
+      bookCard.remove();
+    });
+  });
+};
 
 
 function addBookBtn() {
@@ -112,7 +127,7 @@ function closeDialog() {
 
 
 
-    
+
 openDialog();
 closeDialog();
 
