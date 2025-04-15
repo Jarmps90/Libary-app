@@ -41,6 +41,7 @@ function displayBook(book) {
   
   books.forEach((books, index) => {
     books.dataset.id = bookLibrary[index].id
+   
   });
  
 };
@@ -66,6 +67,7 @@ function addBookToLibrary() {
       });
         
       displayBook(newBook);
+      
     }
     
 };
@@ -81,17 +83,23 @@ function removeBookBtn(bookCard) {
     
 };
 
-function removeBook() {
-  const book = document.querySelector('.bookCard');
+function removeBook(bookId) {
+  
   const remove = document.querySelectorAll('.removeBtn');
   remove.forEach((removeBtn) => {
     removeBtn.addEventListener('click', (e) => {
       const element = e.target;
       const bookCard = element.parentElement;
-      bookCard.remove();
+      // bookCard.remove();
+
+      bookLibrary.splice(bookId, 1);
+      
     });
   });
+  
 };
+
+
 
 
 function addBookBtn() {
