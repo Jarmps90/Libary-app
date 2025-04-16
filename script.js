@@ -21,7 +21,6 @@ function displayBook(book) {
     const  bookCard = document.createElement('div');
     bookCard.className = 'bookCard';
 
-    
     const title = document.createElement('p');
     const author = document.createElement('p');
     const pages = document.createElement('p');
@@ -64,14 +63,9 @@ function addBookToLibrary() {
       pagesValue.length > 0 && readValue.length > 0) {
         bookLibrary.push(newBook);
         bookLibrary.forEach((book) => {
-          book.id = self.crypto.randomUUID()
-         
-      });
-        
-      displayBook(newBook);
-      
-    }
-    
+          book.id = self.crypto.randomUUID()});
+        displayBook(newBook);
+    };
 };
 
 function removeBookBtn(bookCard) {
@@ -98,9 +92,7 @@ function removeBook() {
       if(bookIndex !== -1) {
         bookCard.remove();
         bookLibrary.splice(bookIndex, 1);
-      }
-      
-     
+      };
     });
   });
   
@@ -140,6 +132,9 @@ function closeDialog() {
     }
 };
 
+function readToggle() {
+  
+}
 
 
 removeBook();
