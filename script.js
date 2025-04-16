@@ -1,6 +1,8 @@
 const dialog = document.querySelector('dialog');
 const container = document.querySelector('.books');
-const bookLibrary = [];
+const bookLibrary = [
+  new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet')
+];
 
 function Book(title, author, pages, read) {
     if(!new.target) {
@@ -83,17 +85,22 @@ function removeBookBtn(bookCard) {
     
 };
 
-function removeBook(bookId) {
+function removeBook() {
   
   const remove = document.querySelectorAll('.removeBtn');
+  
   remove.forEach((removeBtn) => {
     removeBtn.addEventListener('click', (e) => {
-      const element = e.target;
-      const bookCard = element.parentElement;
-      // bookCard.remove();
-
-      bookLibrary.splice(bookId, 1);
+      const bookCard = e.target.parentElement;
+      const cardId = bookCard.getAttribute('data-id');
+      const bookIndex = bookLibrary.findIndex((book) => book.id === cardId);
       
+      if(bookIndex !== -1) {
+        bookCard.remove();
+        bookLibrary.splice(bookIndex, 1);
+      }
+      
+     
     });
   });
   
@@ -135,8 +142,8 @@ function closeDialog() {
 
 
 
-
+removeBook();
 openDialog();
 closeDialog();
 
-// addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
+
