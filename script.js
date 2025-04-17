@@ -14,6 +14,10 @@ function Book(title, author, pages, read) {
     this.read = read;
     };
 
+// Book.prototype.toggleRead = function() {
+//   this.read = !this.read;
+// }
+
 function displayBook(book) {
   container.innerHTML = '';
   
