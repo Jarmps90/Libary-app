@@ -28,8 +28,8 @@ function toggleReadBook() {
   
   if(book.read === true) {
     read.innerText = 'Read: Read'
-  // } else {
-  //   read.innerText = 'Read: Not read'
+  } else {
+    read.innerText = 'Read: Not read'
   };
 
  
