@@ -1,22 +1,41 @@
 const dialog = document.querySelector('dialog');
 const container = document.querySelector('.books');
 const bookLibrary = [
-  new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet')
+new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read'),
+new Book('Harry Potter', 'J.K Rowling', '300 pages', 'read')
+
 ];
 
 function Book(title, author, pages, read) {
-    if(!new.target) {
+  if(!new.target) {
         throw Error('You must use the "new" operator to call the constructor');
     }
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    };
+   
+};
 
-// Book.prototype.toggleRead = function() {
-//   this.read = !this.read;
-// }
+function toggleReadBook() {
+  const read = document.querySelector('.read');
+  const book = {
+    toggleRead() {
+      this.read = !this.read;
+    }
+  };
+  book.toggleRead();
+  
+  if(book.read === true) {
+    read.innerText = 'Read: Read'
+  // } else {
+  //   read.innerText = 'Read: Not read'
+  };
+
+ 
+  book.toggleRead();
+};
+
 
 function displayBook(book) {
   container.innerHTML = '';
@@ -29,7 +48,7 @@ function displayBook(book) {
     const author = document.createElement('p');
     const pages = document.createElement('p');
     const read = document.createElement('p');
-  
+    read.className = 'read';
     title.innerText = `Title: ${bookLibrary[i].title}`;
     author.innerText = `Author: ${bookLibrary[i].author}`;
     pages.innerText = `Pages: ${bookLibrary[i].pages}`;
@@ -48,7 +67,7 @@ function displayBook(book) {
     books.dataset.id = bookLibrary[index].id
    
   });
- 
+  
 };
 
 
@@ -109,7 +128,9 @@ function addBookBtn() {
   const addBtn = document.querySelector('#addButton');
  
     addBtn.addEventListener('click', () => {
-     addBookToLibrary();}
+     addBookToLibrary()
+     dialog.close();
+    }
     );
 
 };
@@ -140,9 +161,7 @@ function readToggle() {
   
 }
 
-
 removeBook();
 openDialog();
 closeDialog();
-
 
