@@ -17,26 +17,6 @@ function Book(title, author, pages, read) {
    
 };
 
-function toggleReadBook() {
-  const read = document.querySelector('.read');
-  const book = {
-    toggleRead() {
-      this.read = !this.read;
-    }
-  };
-  book.toggleRead();
-  
-  if(book.read === true) {
-    read.innerText = 'Read: Read'
-  } else {
-    read.innerText = 'Read: Not read'
-  };
-
- 
-  book.toggleRead();
-};
-
-
 function displayBook(book) {
   container.innerHTML = '';
   
@@ -60,6 +40,7 @@ function displayBook(book) {
     
     container.append(bookCard);
     removeBookBtn(bookCard);
+    toggleReadBtn(bookCard);
   };
   const books = document.querySelectorAll('.bookCard');
   
@@ -157,11 +138,35 @@ function closeDialog() {
     }
 };
 
-function readToggle() {
-  
+// function toggleReadBook() {
+//   const read = document.querySelector('.read');
+//   const book = {
+//     toggleRead() {
+//       this.read = !this.read;
+//     }
+//   };
+// return book.toggleRead();
+// };
+
+function toggleReadBtn(bookCard) {
+  const toggleBtn = document.createElement('button');
+    toggleBtn.type = 'button';
+    toggleBtn.innerText = 'Read status';
+    toggleBtn.className = 'toggleRead';
+    bookCard.append(toggleBtn);
+    toggleReadStatus();
 }
 
-removeBook();
+function toggleReadStatus() {
+  const toggle = document.querySelector('.toggleBtn');
+
+
+    toggle.addEventListener('click', () => {
+      alert('This works');
+    })
+
+}
+
 openDialog();
 closeDialog();
 
