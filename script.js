@@ -18,6 +18,8 @@ function Book(title, author, pages, read) {
 };
 
 function displayBook(book) {
+  
+  
   container.innerHTML = '';
   
   for(let i = 0; i < bookLibrary.length; i++) {
@@ -41,14 +43,13 @@ function displayBook(book) {
     container.append(bookCard);
     removeBookBtn(bookCard);
     toggleReadBtn(bookCard);
+    
   };
   const books = document.querySelectorAll('.bookCard');
-  
   books.forEach((books, index) => {
     books.dataset.id = bookLibrary[index].id
-   
   });
-  
+
 };
 
 
@@ -138,15 +139,17 @@ function closeDialog() {
     }
 };
 
-// function toggleReadBook() {
-//   const read = document.querySelector('.read');
-//   const book = {
-//     toggleRead() {
-//       this.read = !this.read;
-//     }
-//   };
-// return book.toggleRead();
-// };
+function toggleReadBook() {
+  
+  const book = {
+    toggleRead() {
+      this.read = !this.read;
+    }
+  };
+book.toggleRead();
+
+
+};
 
 function toggleReadBtn(bookCard) {
   const toggleBtn = document.createElement('button');
@@ -155,17 +158,23 @@ function toggleReadBtn(bookCard) {
     toggleBtn.className = 'toggleRead';
     bookCard.append(toggleBtn);
     toggleReadStatus();
-}
+};
 
 function toggleReadStatus() {
-  const toggle = document.querySelector('.toggleBtn');
+  const toggle = document.querySelectorAll('.toggleRead');
+    
+  toggle.forEach((toggleBtn) => {
+    toggleBtn.addEventListener('click', (e) => {
+      const element = e.target.parentElement;
+      if(element) {
+        toggleReadBook();
+      }
+    });
+  });
+   
 
 
-    toggle.addEventListener('click', () => {
-      alert('This works');
-    })
-
-}
+};
 
 openDialog();
 closeDialog();
