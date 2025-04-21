@@ -166,9 +166,7 @@ function toggleReadStatus() {
   toggle.forEach((toggleBtn) => {
     toggleBtn.addEventListener('click', (e) => {
       const element = e.target.parentElement;
-      if(element) {
-        toggleReadBook();
-      }
+    
     });
   });
    
