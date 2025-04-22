@@ -1,10 +1,11 @@
 const dialog = document.querySelector('dialog');
 const container = document.querySelector('.books');
-const bookLibrary = [
-new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read'),
-new Book('Harry Potter', 'J.K Rowling', '300 pages', 'read')
+const bookLibrary = [];
 
-];
+let newBook2 = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'Not read');
+let newBook3 = new Book('Harry Potter', 'J.K Rowling', '300 pages', 'Read') 
+let newBook1 = new Book('Clean code', 'Robert C. Martin', '464', 'Not read');
+bookLibrary.push(newBook1, newBook2, newBook3);
 
 function Book(title, author, pages, read) {
   if(!new.target) {
@@ -148,13 +149,20 @@ function toggleReadStatus() {
     toggleBtn.addEventListener('click', (e) => {
       const element = e.target.parentElement;
       
-      
     });
   });
    
 
 
 };
+
+Book.prototype.toggleRead = function() {
+  const read = document.querySelector('.read')
+  if(read.innerText == 'Read: Read') {
+    read.innerText = 'Read: Not read'
+  } else if( read.innerText == 'Read: Not read')
+    read.innerText = 'Read: Read';
+}
 
 openDialog();
 closeDialog();
