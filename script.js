@@ -74,7 +74,6 @@ function addBookToLibrary() {
 };
 
 function removeBookBtn(bookCard) {
-  
   const removeBtn = document.createElement('button');
     removeBtn.type = 'button';
     removeBtn.innerText = 'Remove';
@@ -85,30 +84,24 @@ function removeBookBtn(bookCard) {
 };
 
 function removeBook() {
-  
   const remove = document.querySelectorAll('.removeBtn');
-  
-  remove.forEach((removeBtn) => {
-    removeBtn.addEventListener('click', (e) => {
-      const bookCard = e.target.parentElement;
-      const cardId = bookCard.getAttribute('data-id');
-      const bookIndex = bookLibrary.findIndex((book) => book.id === cardId);
-      
-      if(bookIndex !== -1) {
-        bookCard.remove();
-        bookLibrary.splice(bookIndex, 1);
-      };
+    remove.forEach((removeBtn) => {
+      removeBtn.addEventListener('click', (e) => {
+        const bookCard = e.target.parentElement;
+        const cardId = bookCard.getAttribute('data-id');
+        const bookIndex = bookLibrary.findIndex((book) => book.id === cardId);
+        
+        if(bookIndex !== -1) {
+          bookCard.remove();
+          bookLibrary.splice(bookIndex, 1);
+        };
+      });
     });
-  });
   
 };
 
-
-
-
 function addBookBtn() {
   const addBtn = document.querySelector('#addButton');
- 
     addBtn.addEventListener('click', () => {
      addBookToLibrary()
      dialog.close();
@@ -139,18 +132,6 @@ function closeDialog() {
     }
 };
 
-function toggleReadBook() {
-  
-  const book = {
-    toggleRead() {
-      this.read = !this.read;
-    }
-  };
-book.toggleRead();
-
-
-};
-
 function toggleReadBtn(bookCard) {
   const toggleBtn = document.createElement('button');
     toggleBtn.type = 'button';
@@ -162,11 +143,12 @@ function toggleReadBtn(bookCard) {
 
 function toggleReadStatus() {
   const toggle = document.querySelectorAll('.toggleRead');
-    
+  const read = document.querySelector('.read')
   toggle.forEach((toggleBtn) => {
     toggleBtn.addEventListener('click', (e) => {
       const element = e.target.parentElement;
-    
+      
+      
     });
   });
    
