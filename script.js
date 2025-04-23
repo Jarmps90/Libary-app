@@ -147,8 +147,8 @@ function toggleReadStatus() {
   const read = document.querySelector('.read')
   toggle.forEach((toggleBtn) => {
     toggleBtn.addEventListener('click', (e) => {
-      const element = e.target.parentElement;
-      
+      const element = e.target.read;
+      element.innerText = 'read';
     });
   });
    
