@@ -144,11 +144,11 @@ function toggleReadBtn(bookCard) {
 
 function toggleReadStatus() {
   const toggle = document.querySelectorAll('.toggleRead');
-  const read = document.querySelector('.read')
+  const read = document.querySelector('.read');
   toggle.forEach((toggleBtn) => {
     toggleBtn.addEventListener('click', (e) => {
       const element = e.target.read;
-      element.innerText = 'read';
+      
     });
   });
    
