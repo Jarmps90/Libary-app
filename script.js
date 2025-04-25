@@ -157,11 +157,7 @@ function toggleReadStatus() {
 };
 
 Book.prototype.toggleRead = function() {
-  const read = document.querySelector('.read')
-  if(read.innerText == 'Read: Read') {
-    read.innerText = 'Read: Not read'
-  } else if( read.innerText == 'Read: Not read')
-    read.innerText = 'Read: Read';
+  this.read = !this.read;
 }
 
 openDialog();
