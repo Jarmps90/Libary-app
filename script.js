@@ -158,6 +158,11 @@ function toggleReadStatus() {
 
 Book.prototype.toggleRead = function() {
   this.read = !this.read;
+  // if(read == true) {
+  //   this.read = 'Read';
+  // } else {
+  //   this.read = 'Not read';
+  // }
 }
 
 openDialog();
