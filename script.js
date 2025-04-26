@@ -95,13 +95,14 @@ function openDialog() {
     showBtn.addEventListener('click', () => {
       dialog.showModal();
     });
-    addBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      addBookToLibrary();
-      dialog.close();
-     }
-     );
+  
 };
+
+function bookSubmit(e) {
+  e.preventDefault();
+  addBookToLibrary();
+  dialog.close();
+}
 
 function closeDialog() {
   const closeBtn = document.querySelectorAll('.closeBtn');
@@ -128,7 +129,7 @@ function toggleReadBtn(bookCard) {
       const cardId = bookCard.getAttribute('data-id');
       const bookIndex = bookLibrary.findIndex((book) => book.id === cardId);
       bookLibrary[bookIndex].toggleRead();
-      // displayBook();
+      displayBook();
     });
 };
 
