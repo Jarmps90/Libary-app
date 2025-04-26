@@ -14,7 +14,7 @@
      <div class="books"></div>
      <dialog>
         <button class="closeBtn | topCloseBtn">&times;</button>
-        <form action="#" id="bookform" >
+        <form action="#" id="bookform" onsubmit="bookSubmit(e)" >
             <label for="book_title">Book title:</label>
             <input type="text" name="title" id="book_title" required>
             <label for="book_author">Book author:</label>
@@ -22,7 +22,7 @@
             <label for="book_pages">Book pages:</label>
             <input type="number" name="pages" id="book_pages" min="1"required>
             <label for="book_read">Book read:</label>
-            <select name="read" id="book_read" form="bookform" required>
+            <select name="read" id="book_read" form="bookform">
                 <option value="Read">Read</option>
                 <option value="Not Read">Not read</option>
             </select>
