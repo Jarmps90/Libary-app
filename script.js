@@ -72,6 +72,7 @@ function addBookToLibrary() {
           book.id = self.crypto.randomUUID()});
         displayBook(newBook);
     };
+   
 };
 
 function removeBookBtn(bookCard) {
@@ -139,30 +140,21 @@ function toggleReadBtn(bookCard) {
     toggleBtn.innerText = 'Read status';
     toggleBtn.className = 'toggleRead';
     bookCard.append(toggleBtn);
-    toggleReadStatus();
-};
-
-function toggleReadStatus() {
-  const toggle = document.querySelectorAll('.toggleRead');
-  const read = document.querySelector('.read');
-  toggle.forEach((toggleBtn) => {
     toggleBtn.addEventListener('click', (e) => {
-      const element = e.target.read;
-      
+      const bookCard = e.target.parentElement;
+      const cardId = bookCard.getAttribute('data-id');
+      const bookIndex = bookLibrary.findIndex((book) => book.id === cardId);
+      bookLibrary[bookIndex].toggleRead();
     });
-  });
-   
-
-
 };
+
 
 Book.prototype.toggleRead = function() {
-  this.read = !this.read;
-  // if(read == true) {
-  //   this.read = 'Read';
-  // } else {
-  //   this.read = 'Not read';
-  // }
+  if(this.read === 'Read') {
+    return this.read = 'Not read';
+  } else {
+    return this.read = 'Read';
+  }
 }
 
 openDialog();
