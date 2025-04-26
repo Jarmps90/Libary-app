@@ -15,12 +15,9 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-   
 };
 
 function displayBook(book) {
-  
-  
   container.innerHTML = '';
   
   for(let i = 0; i < bookLibrary.length; i++) {
@@ -50,7 +47,6 @@ function displayBook(book) {
   books.forEach((books, index) => {
     books.dataset.id = bookLibrary[index].id
   });
-
 };
 
 
@@ -72,7 +68,6 @@ function addBookToLibrary() {
           book.id = self.crypto.randomUUID()});
         displayBook(newBook);
     };
-   
 };
 
 function removeBookBtn(bookCard) {
@@ -81,43 +76,30 @@ function removeBookBtn(bookCard) {
     removeBtn.innerText = 'Remove';
     removeBtn.className = 'removeBtn';
     bookCard.append(removeBtn);
-    removeBook();
-    
-};
-
-function removeBook() {
-  const remove = document.querySelectorAll('.removeBtn');
-    remove.forEach((removeBtn) => {
-      removeBtn.addEventListener('click', (e) => {
-        const bookCard = e.target.parentElement;
-        const cardId = bookCard.getAttribute('data-id');
-        const bookIndex = bookLibrary.findIndex((book) => book.id === cardId);
-        
-        if(bookIndex !== -1) {
-          bookCard.remove();
-          bookLibrary.splice(bookIndex, 1);
-        };
-      });
+    removeBtn.addEventListener('click', (e) => {
+      const bookCard = e.target.parentElement;
+      const cardId = bookCard.getAttribute('data-id');
+      const bookIndex = bookLibrary.findIndex((book) => book.id === cardId);
+      
+      if(bookIndex !== -1) {
+        bookCard.remove();
+        bookLibrary.splice(bookIndex, 1);
+      };
     });
-  
-};
-
-function addBookBtn() {
-  const addBtn = document.querySelector('#addButton');
-    addBtn.addEventListener('click', () => {
-     addBookToLibrary()
-     dialog.close();
-    }
-    );
-
+    
 };
 
 function openDialog() {
   const showBtn = document.querySelector('.addBook');
+  const addBtn = document.querySelector('#addButton');
     showBtn.addEventListener('click', () => {
       dialog.showModal();
     });
-    addBookBtn();
+    addBtn.addEventListener('click', () => {
+      addBookToLibrary()
+      dialog.close();
+     }
+     );
 };
 
 function closeDialog() {
@@ -145,9 +127,9 @@ function toggleReadBtn(bookCard) {
       const cardId = bookCard.getAttribute('data-id');
       const bookIndex = bookLibrary.findIndex((book) => book.id === cardId);
       bookLibrary[bookIndex].toggleRead();
+      displayBook();
     });
 };
-
 
 Book.prototype.toggleRead = function() {
   if(this.read === 'Read') {
