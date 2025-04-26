@@ -95,8 +95,9 @@ function openDialog() {
     showBtn.addEventListener('click', () => {
       dialog.showModal();
     });
-    addBtn.addEventListener('click', () => {
-      addBookToLibrary()
+    addBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      addBookToLibrary();
       dialog.close();
      }
      );
