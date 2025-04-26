@@ -1,3 +1,8 @@
+.container{
+    justify-items: center;
+}
+
+/* Modal */
 :modal{
     display: grid;
     grid-template-columns: 1fr min-content;
@@ -11,6 +16,46 @@ form{
     
 }
 
+label{
+    margin-top: 10px;
+}
+
+input{
+    height: 15px;
+}
+
+/* Books */
+
+.books{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:20px;
+}
+
+.bookCard{
+    justify-items: center;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 5px gray;
+    padding: 10px;
+}
+
+/* Buttons */
+
+button{
+    height: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+.removeBtn,
+.toggleRead{width: 120px;
+    height: 30px;
+    width: 120px;
+    height: 30px;
+    margin: 5px;
+    
+}
+
+
 .topCloseBtn{
     width: 30px;
     grid-column: 2/3;
@@ -20,22 +65,9 @@ form{
     width: fit-content;
 }
 
-label{
-    margin-top: 10px;
-}
-
-input{
-    height: 15px;
-}
-
-.books{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap:20px;
-}
-
-.bookCard{
-    border: 1px solid gray;
-    box-shadow: 1px 1px 5px gray;
-    padding: 10px;
+.addBook{
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+    margin-bottom: 20px;
 }
