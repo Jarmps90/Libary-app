@@ -14,15 +14,18 @@
      <div class="books"></div>
      <dialog>
         <button class="closeBtn | topCloseBtn">&times;</button>
-        <form action="#" onsubmit="return false">
+        <form action="#" id="bookform" onsubmit="return false">
             <label for="book_title">Book title:</label>
             <input type="text" name="title" id="book_title" required>
             <label for="book_author">Book author:</label>
             <input type="text" name="author" id="book_author" required>
             <label for="book_pages">Book pages:</label>
-            <input type="text" name="pages" id="book_pages" required>
+            <input type="number" name="pages" id="book_pages" min="1">
             <label for="book_read">Book read:</label>
-            <input type="text" name="read" id="book_read">
+            <select name="read" id="book_read" form="bookform">
+                <option value="Read">Read</option>
+                <option value="Not Read">Not read</option>
+            </select>
             <button type="submit" class="addBtn" id="addButton">Add</button>
             <button type="button" class="closeBtn | bottomCloseBtn">Cancel</button>
         </form>
