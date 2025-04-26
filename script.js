@@ -128,7 +128,7 @@ function toggleReadBtn(bookCard) {
       const cardId = bookCard.getAttribute('data-id');
       const bookIndex = bookLibrary.findIndex((book) => book.id === cardId);
       bookLibrary[bookIndex].toggleRead();
-      displayBook();
+      // displayBook();
     });
 };
 
