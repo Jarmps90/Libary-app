@@ -39,10 +39,13 @@ input{
 
 .bookCard{
     justify-items: center;
-    border: 1px solid gray;
-    box-shadow: 1px 1px 5px gray;
+    background-image: linear-gradient(rgb(45, 109, 206),rgb(63, 219, 24));
+    box-shadow: 1px 1px 10px rgb(255, 0, 0);
     padding: 10px;
+    border-radius: 10px;
 }
+
+
 
 /* Buttons */
 
@@ -75,4 +78,10 @@ button{
     height: 30px;
     margin: 10px;
     margin-bottom: 20px;
+}
+
+/* Other */
+
+hr{
+    border-bottom: 1px solid black;
 }
