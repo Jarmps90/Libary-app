@@ -98,8 +98,8 @@ function openDialog() {
   
 };
 
-function bookSubmit(e) {
-  e.preventDefault();
+function bookSubmit(event) {
+  event.preventDefault();
   addBookToLibrary();
   dialog.close();
 }
