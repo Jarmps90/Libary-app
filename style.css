@@ -9,8 +9,8 @@
     grid-template-columns: 1fr min-content;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 0  5px rgb(1, 214, 1);
-    background-color: rgb(28, 233, 233);
+    box-shadow: 0 0  5px rgb(250, 1, 1);
+    background-image: linear-gradient(yellow, red);
 }
 
 form{
@@ -79,7 +79,7 @@ button{
     width: 30px;
     grid-column: 2/3;
     border: none;
-    background-color: rgb(28, 233, 233);
+    
     cursor: pointer;
     width: fit-content;
 }
@@ -94,5 +94,5 @@ button{
 /* Other */
 
 hr{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(253, 0, 0);
 }
