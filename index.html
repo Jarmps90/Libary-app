@@ -11,10 +11,11 @@
     <div class="container">
    
      <button class="addBook">Add book</button>
+     <hr>
      <div class="books"></div>
      <dialog>
         <button class="closeBtn | topCloseBtn">&times;</button>
-        <form action="#" id="bookform" onsubmit="bookSubmit(e)" >
+        <form action="#" id="bookform" onsubmit="bookSubmit(event)" >
             <label for="book_title">Book title:</label>
             <input type="text" name="title" id="book_title" required>
             <label for="book_author">Book author:</label>
