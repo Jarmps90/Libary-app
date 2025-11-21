@@ -2,31 +2,24 @@ const dialog = document.querySelector('dialog');
 const container = document.querySelector('.books');
 const bookLibrary = [];
 
-let newBook2 = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'Not read');
-let newBook3 = new Book('Harry Potter', 'J.K Rowling', '300 pages', 'Read') 
-let newBook1 = new Book('Clean code', 'Robert C. Martin', '464', 'Not read');
-bookLibrary.push(newBook1, newBook2, newBook3);
-
-function Book(title, author, pages, read) {
-  if(!new.target) {
-        throw Error('You must use the "new" operator to call the constructor');
-    }
+class Book {
+ 
+  constructor(title, author, pages, read) {
+   
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+  };
 };
 
-// class Book {
- 
-//   constructor(title, author, pages, read) {
-//    
-//    this.title = title;
-//    this.author = author;
-//    this.pages = pages;
-//    this.read = read;
-// }
-// };
+let newBook2 = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'Not read');
+let newBook3 = new Book('Harry Potter', 'J.K Rowling', '300 pages', 'Read');
+let newBook1 = new Book('Clean code', 'Robert C. Martin', '464', 'Not read');
+bookLibrary.push(newBook1, newBook2, newBook3);
+
+
+
 
 function displayBook(book) {
   container.innerHTML = '';
